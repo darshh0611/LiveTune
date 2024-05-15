@@ -1,9 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo.png';
 import Profile from '../assets/profile.png';
 import Search from '../assets/search.png';
 
+
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/login');
+  };
+
   return (
     <nav className='bg-white'>
       <div className='max-w-7xl mx-auto px-5 py-2 sm:px-6 lg:px-8 w-full'>
@@ -12,23 +21,23 @@ const Navbar = () => {
           {/* Logo - aligned to the far left */}
           <div className='flex items-center'>
             <a href="/" className='flex-shrink-0'>
-              <img src={Logo} className="h-10 w-10" alt="Logo" />
+              <img src={Logo} className="h-10 w-10" alt="Logo" href="/"/>
             </a>
             <ul className='hidden lg:flex lg:space-x-4 lg:ml-6'>
               <li>
-                <a href="/" className='hover:bg-orange-500 px-3 py-2 rounded-md'>Home</a>
+                <a href="/" className=' px-3 py-2 rounded-md text-orange-500 hover:bg-orange-100 hover:text-orange-600'>Home</a>
               </li>
               <li>
-                <a href="/events" className='hover:bg-orange-500 px-3 py-2 rounded-md'>Events</a>
+                <a href="/events" className=' px-3 py-2 rounded-md text-orange-500 hover:bg-orange-100 hover:text-orange-600'>Events</a>
               </li>
               <li>
-                <a href="/livestreams" className='hover:bg-orange-500 px-3 py-2 rounded-md'>Live Streams</a>
+                <a href="/livestreams" className=' px-3 py-2 rounded-md text-orange-500 hover:bg-orange-100 hover:text-orange-600'>Live Streams</a>
               </li>
               <li>
-                <a href="/about" className='hover:bg-orange-500 px-3 py-2 rounded-md'>About Us</a>
+                <a href="/about" className=' px-3 py-2 rounded-md text-orange-500 hover:bg-orange-100 hover:text-orange-600'>About Us</a>
               </li>
               <li>
-                <a href="/support" className='hover:bg-orange-500 px-3 py-2 rounded-md'>Support and FAQ</a>
+                <a href="/support" className=' px-3 py-2 rounded-md text-orange-500 hover:bg-orange-100 hover:text-orange-600'>Support and FAQ</a>
               </li>
             </ul>
           </div>
@@ -44,9 +53,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Profile icon - aligned to the far right */}
-          <div className='flex'>
-            <img src={Profile} className="h-10 w-10 rounded-full" alt="Profile" />
+          <div className='flex bg-orange-500 px-3 py-2 rounded-md text-white hover:bg-orange-100 hover:text-orange-600'>
+            <button type="submit" onClick={handleLoginClick}>Log In</button>
           </div>
 
         </div>
